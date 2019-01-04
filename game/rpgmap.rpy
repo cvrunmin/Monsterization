@@ -147,8 +147,7 @@ label lab_storeroom_map_story:
         pkapo.setVisible(True)
         pkapo.queueDest(128,352)
         pkapo.queueDest(320,352)
-        # renpy.pause(delay=2.0,hard=True)
-    # pause 2.0
+        renpy.pause(delay=2.0,hard=True)
     show kapo at character_2
     kapo "哇……好暗……這裏面到底是收藏什麼東西的？"
     unknown "{size=+10}{cps=*0.25}過……來………{/cps}{/size}"
@@ -158,61 +157,61 @@ label lab_storeroom_map_story:
     hide kapo
     python:
         pkapo.setDest(576,352,0.5)
-        # renpy.pause(delay=1.8,hard=True)
+        renpy.pause(delay=1.8,hard=True)
         pmonst = storeroom_mapsprite_playonly.characterList["monster"]
         pmonst.setPos(1024,352)
         pmonst.setVisible(True)
         pmonst.setDest(704,352,2.5)
-        # renpy.pause(delay=0.5,hard=True)
-    # show kapo flip at character_1
-    # show monster flip at character_3
-    # monster "{size=+10}{cps=*0.25}過來，讓我好好看看，今晚的獵物！{/cps}{/size}"
-    # show kapo cry flip at character_1
-    # kapo "不要啊啊啊啊啊啊！"
-    # hide kapo
-    # hide monster
+        renpy.pause(delay=0.5,hard=True)
+    show kapo flip at character_1
+    show monster flip at character_3
+    monster "{size=+10}{cps=*0.25}過來，讓我好好看看，今晚的獵物！{/cps}{/size}"
+    show kapo cry flip at character_1
+    kapo "不要啊啊啊啊啊啊！"
+    hide kapo
+    hide monster
     python:
         pjatsam = storeroom_mapsprite_playonly.characterList["jatsam"]
         pjatsam.setPos(1024,352)
         pjatsam.setVisible(True)
         pjatsam.queueDest(576,352,2.5)
         pjatsam.queueDest(577,352)
-        # renpy.pause(delay=0.8,hard=True)
+        renpy.pause(delay=0.8,hard=True)
         pkapo.queueDest(535,352,1.5)
         pkapo.queueDest(536,352)
-        # renpy.pause(delay=0.75,hard=True)
+        renpy.pause(delay=0.75,hard=True)
     #$ pkapo.setDest(536,352)
-    # show kapo flip at character_1
-    # show jatsam flip at character_2
-    # show monster flip at character_3_far behind kapo, jatsam
-    # unknown "請你住手！這孩子是無辜的"
-    # monster "休想阻止我！！我要讓更多的人和我一樣！成為這個實驗的犧牲品！！！"
-    # unknown "是嗎……那麼……"
-    # hide kapo
-    # hide jatsam
-    # hide monster
+    show kapo flip at character_1
+    show jatsam flip at character_2
+    show monster flip at character_3_far behind kapo, jatsam
+    unknown "請你住手！這孩子是無辜的"
+    monster "休想阻止我！！我要讓更多的人和我一樣！成為這個實驗的犧牲品！！！"
+    unknown "是嗎……那麼……"
+    hide kapo
+    hide jatsam
+    hide monster
     python:
         pjatsam.setDest(704,352,3)
-        # renpy.pause(delay=0.30,hard=True)
-    # show red_screen_a with ComposeTransition(trans=hpunch, after=Dissolve(0.2))
-    # hide red_screen_a with Dissolve(0.2)
+        renpy.pause(delay=0.30,hard=True)
+    show red_screen_a with ComposeTransition(trans=hpunch, after=Dissolve(0.2))
+    hide red_screen_a with Dissolve(0.2)
     python:
         pmonst.setDying(True)
-        # renpy.pause(delay=0.5,hard=True)
-    # show kapo flip at character_1
-    # show jatsam flip at character_2
-    # unknown "抱歉，但我必須阻止這個實驗……不能再讓更多人犧牲！"
-    # show jatsam flip at character_3 with ease
-    # show jatsam at character_3 with Dissolve(0.2)
-    # unknown "已經沒事了，嚇到你真的十分抱歉。"
-    # kapo "不……謝謝你"
-    # jatsam "我叫一心，你來到這裏相信你也大概明白這裏正進行生化實驗，我和剛才的狼人，都是實驗品之一。"
-    # show kapo frownsmile flip at character_1
-    # kapo "不可能……"
-    # jatsam "可能要你相信我仍需一點時間，但你留在這裏也很危險。"
-    # jatsam "看來你也只是誤打誤撞進來的，這樣吧，我護送你到外面，你以後都別再接近那位『老師』了。"
-    # hide kapo
-    # hide jatsam
+        renpy.pause(delay=0.5,hard=True)
+    show kapo flip at character_1
+    show jatsam flip at character_2
+    unknown "抱歉，但我必須阻止這個實驗……不能再讓更多人犧牲！"
+    show jatsam flip at character_3 with ease
+    show jatsam at character_3 with Dissolve(0.2)
+    unknown "已經沒事了，嚇到你真的十分抱歉。"
+    kapo "不……謝謝你"
+    jatsam "我叫一心，你來到這裏相信你也大概明白這裏正進行生化實驗，我和剛才的狼人，都是實驗品之一。"
+    show kapo frownsmile flip at character_1
+    kapo "不可能……"
+    jatsam "可能要你相信我仍需一點時間，但你留在這裏也很危險。"
+    jatsam "看來你也只是誤打誤撞進來的，這樣吧，我護送你到外面，你以後都別再接近那位『老師』了。"
+    hide kapo
+    hide jatsam
     python:
         closeMap()
         del storeroom_mapsprite_playonly

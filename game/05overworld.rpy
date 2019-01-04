@@ -30,7 +30,8 @@ init -10 python:
 
 init -1 python:
     from renpy.display.screen import get_screen_variant, get_screen_layer, ScreenDisplayable
-    from Queue import Queue
+    #from Queue import Queue
+    import collections
     import copy
     import math
     import random
@@ -1187,7 +1188,7 @@ init -1 python:
                 self.rect = pygame.Rect((x, y), (sprites[4][0], sprites[4][1]))
                 self.actionChoices = NonUniformRandom( [('stand', 15), ('walk', 1)] )
                 self.posLocked = False
-                self.dests = Queue()
+                self.dests = collections.deque([])
                 self.destX = None #The x coordinate of our destination
                 self.destY = None #The y coordinate of our destination
                 self.speed = 1
@@ -1210,7 +1211,7 @@ init -1 python:
                 self.rect.y = y
 
             def queueDest(self,x,y,speed=1):
-                self.dests.put((x,y,speed))
+                self.dests.append((x,y,speed))
 
             def setDest(self,x,y,speed=1):
                 self.destX = x
@@ -1260,8 +1261,8 @@ init -1 python:
                             if self.frames <> self.southFrames:
                                 self.frames = self.southFrames
 
-                elif not self.dests.empty():
-                    nx,ny,nspeed = self.dests.get()
+                elif self.dests:
+                    nx,ny,nspeed = self.dests.popleft()
                     self.destX = nx
                     self.destY = ny
                     self.speed = nspeed
